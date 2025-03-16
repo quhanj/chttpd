@@ -23,10 +23,10 @@ message(${PROJECT_NAME} " " ${PROJECT_VERSION} " compatibled " ${PROJECT_SOVERSI
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 -W -Wall")
 get_property(DYLD_PATH DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY LINK_DIRECTORIES)
 message(STATUS "${DYLD_PATH}")
-add_library("${PROJECT_NAME}" SHARED "src/chttpd.c")
+add_library("${PROJECT_NAME}" SHARED "chttpd.c")
 target_link_libraries(${PROJECT_NAME} cjson cdelete)
 install(TARGETS "${PROJECT_NAME}" DESTINATION lib)
-install(FILES "inc/${PROJECT_NAME}.h" DESTINATION include)
+install(FILES "${PROJECT_NAME}.h" DESTINATION include)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	set(CPACK_GENERATOR "DEB")
